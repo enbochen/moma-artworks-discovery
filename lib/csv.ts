@@ -2,6 +2,13 @@ import csv from 'csv-parser'
 import fs from 'fs'
 import Artwork from '../interfaces/artwork'
 
+/**
+ * Function to get filtered rows from a large CSV file if the validate function passes.
+ *
+ * @param {string} filePath - The path to the CSV file.
+ * @param {function} validate - A validate function to return true or false for each row
+ * @returns {Promise<Artwork[]>} - A promise that resolves to an array of Artwork objects.
+ */
 export async function getRowsBySearch(
   filePath: string,
   validate: (row: any) => boolean

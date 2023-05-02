@@ -7,20 +7,10 @@ import { getRandomRowsAsJSON, getRowsBySearch } from './csv'
 const artistDirectory = join(process.cwd(), '_art/Artists.json')
 const artworksDirectory = join(process.cwd(), '_art/Artworks.csv')
 
-export function getArtists(): Artist[] {
+export function getAllArtists(): Artist[] {
   const fileContent = fs.readFileSync(artistDirectory, 'utf-8')
   const data = JSON.parse(fileContent)
   return data
-}
-
-// export function getArtworks(): Artwork[] {
-//   const fileContent = fs.readFileSync(artworksDirectory, 'utf-8')
-//   const data = JSON.parse(fileContent)
-//   return data
-// }
-
-export function getAllArtists() {
-  return getArtists()
 }
 
 export async function getArtworksByArtistId(id: number): Promise<Artwork[]> {
