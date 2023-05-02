@@ -1,5 +1,5 @@
+import Image from 'next/image'
 import Artwork from '../interfaces/artwork'
-import ArtworkCard from './artwork-card'
 
 interface props {
   artworks: Artwork[]
@@ -8,12 +8,18 @@ interface props {
 const ArtistArtworks = ({ artworks }: props) => {
   return (
     <div>
-      <h3 className="text-2xl mb-3 leading-snug">
-        Artworks({artworks.length})
-      </h3>
-      <div>
+      <h3 className="text-xl mb-2 leading-snug">Artworks({artworks.length})</h3>
+      <div className="flex gap-2 flex-wrap">
         {artworks.map((artwork) => (
-          <ArtworkCard {...artwork} key={artwork.ObjectID} />
+          <a href={artwork.URL} target="_blank" rel="noreferrer noopener">
+            <Image
+              src={artwork.ThumbnailURL}
+              alt={artwork.Title}
+              width="300"
+              height="300"
+              className="shadow-md"
+            />
+          </a>
         ))}
       </div>
     </div>
