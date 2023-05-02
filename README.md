@@ -19,4 +19,6 @@ The website should be up and running on [http://localhost:3000](http://localhost
 
 # Notes
 
-This project uses [Tailwind CSS](https://tailwindcss.com) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3).
+- The idea is randomly pick up 2 images to create a diptych within the 153,825 artworks by 35,298 artists
+- the main page and artist page is using SSR(server side rendering)
+- This project uses [Tailwind CSS](https://tailwindcss.com) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3).
