@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import Artwork from '../interfaces/artwork'
 
 type Props = {
@@ -20,6 +21,16 @@ const ArtworkTwins = ({ artworks }: Props) => {
                 height="300"
               />
             </a>
+            <br />
+            <div className="text-center">
+              <Link
+                href={`/artists/${artwork.ConstituentID}`}
+                className="hover:underline"
+              >
+                <div className="">{artwork.Artist}</div>
+              </Link>
+              <div>{artwork.Date}</div>
+            </div>
           </div>
         ))}
     </div>

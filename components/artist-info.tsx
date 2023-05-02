@@ -4,8 +4,8 @@ interface Props extends Artist {}
 
 const ArtsitInfo = ({ DisplayName, ArtistBio, Gender }: Props) => {
   return (
-    <div>
-      <h3 className="text-3xl mb-3 leading-snug">
+    <div className="mt-6">
+      <h3 className="text-4xl md:text-4xl font-bold mb-3 leading-snug">
         <a href="/" className="hover:underline">
           {DisplayName}
         </a>

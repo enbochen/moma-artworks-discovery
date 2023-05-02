@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Container from '../../components/container'
 import Layout from '../../components/layout'
 import ArtsitInfo from '../../components/artist-info'
@@ -13,6 +14,9 @@ interface Props {
 export default function Artist({ artist, artworks }: Props) {
   return (
     <Layout>
+      <Head>
+        <title>{artist.DisplayName}</title>
+      </Head>
       <Container>
         <ArtsitInfo {...artist} />
         <ArtsitArtworks artworks={artworks} />

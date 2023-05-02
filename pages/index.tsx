@@ -5,10 +5,7 @@ import ArtworkTwins from '../components/artwork-twins'
 import { getDailyRandomArtworks } from '../lib/api'
 import Head from 'next/head'
 import { WEBSITE_NAME } from '../lib/constants'
-import Artist from '../interfaces/artist'
 import Artwork from '../interfaces/artwork'
-import Link from 'next/link'
-import Image from 'next/image'
 
 type Props = {
   randomArtworks: Artwork[]
