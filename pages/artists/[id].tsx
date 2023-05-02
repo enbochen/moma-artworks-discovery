@@ -1,4 +1,6 @@
+import Container from '../../components/container'
 import Layout from '../../components/layout'
+import ArtsitInfo from '../../components/artist'
 import Artist from '../../interfaces/artist'
 import Artwork from '../../interfaces/artwork'
 import {
@@ -14,10 +16,9 @@ interface Props {
 export default function Artist({ artist }: Props) {
   return (
     <Layout>
-      <div>
-        <div>{artist.DisplayName}</div>
-        {/* <div>{JSON.stringify(artworks)}</div> */}
-      </div>
+      <Container>
+        <ArtsitInfo {...artist} />
+      </Container>
     </Layout>
   )
 }
