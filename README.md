@@ -6,7 +6,7 @@ A fun art discovery website using Next.js and TypeScript with MoMA collection da
 
 ## Demo
 
-[Hosted on Vercel](https://moma-artworks-discovery-i24f89z19-enbochen.vercel.app)
+[Hosted on Vercel](https://moma-artworks-discovery.vercel.app)
 
 ## How to use
 
