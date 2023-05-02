@@ -1,6 +1,6 @@
 # Nice to Meet You
 
-A fun art discovery website using Next.js and TypeScript with MoMA collection data
+A fun website of discovering art using Next.js and TypeScript with [MoMA collection data](https://github.com/MuseumofModernArt/collection)
 
 ![preview](preview.png)
 
@@ -17,7 +17,7 @@ npm run dev
 
 The website should be up and running on [http://localhost:3000](http://localhost:3000)!
 
-# Notes
+## Notes
 
 - The idea is randomly pick up 2 images to create a diptych within the 153,825 artworks by 35,298 artists
 - the main page and artist page is using SSR(server side rendering)
