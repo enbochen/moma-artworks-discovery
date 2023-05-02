@@ -1,8 +1,6 @@
 import Artist from '../interfaces/artist'
 
-interface Props extends Artist {}
-
-const ArtsitInfo = ({ DisplayName, ArtistBio, Gender }: Props) => {
+const ArtsitInfo = ({ DisplayName, ArtistBio, Gender }: Artist) => {
   return (
     <div className="mt-6">
       <h3 className="text-4xl md:text-4xl font-bold mb-3 leading-snug">
