@@ -2,6 +2,29 @@ import csv from 'csv-parser'
 import fs from 'fs'
 import Artwork from '../interfaces/artwork'
 
+export async function getRowsBySearch(
+  filePath: string,
+  validate: (row: any) => boolean
+) {
+  const validatedRows: any[] = []
+  return new Promise((resolve, reject) => {
+    return fs
+      .createReadStream(filePath)
+      .pipe(csv())
+      .on('data', (row) => {
+        if (validate(row)) {
+          validatedRows.push(row)
+        }
+      })
+      .on('end', () => {
+        resolve(validatedRows)
+      })
+      .on('error', (error) => {
+        reject(error)
+      })
+  })
+}
+
 /**
  * Function to get n random rows from a large CSV file and return them as JSON.
  *

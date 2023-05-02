@@ -2,7 +2,7 @@ import fs from 'fs'
 import { join } from 'path'
 import Artist from '../interfaces/artist'
 import Artwork from '../interfaces/artwork'
-import { getRandomRowsAsJSON } from './csv'
+import { getRandomRowsAsJSON, getRowsBySearch } from './csv'
 
 const artistDirectory = join(process.cwd(), '_art/Artists.json')
 const artworksDirectory = join(process.cwd(), '_art/Artworks.csv')
@@ -34,13 +34,12 @@ export function getAllArtistsId() {
   })
 }
 
-// export function getArtworksByArtistId(id: number): Artwork[] {
-//   const artworks = getArtworks()
-//   const artworkByArtist = artworks.filter((artwork) =>
-//     artwork.ConstituentID.includes(id)
-//   )
-//   return artworkByArtist
-// }
+export async function getArtworksByArtistId(id: number): Promise<Artwork[]> {
+  const artworkByArtist = await getRowsBySearch(artworksDirectory, (row) =>
+    row.ConstituentID.includes(id)
+  )
+  return artworkByArtist as Artwork[]
+}
 
 export async function getDailyRandomArtworks(limit = 2): Promise<Artwork[]> {
   const randomArtworks = await getRandomRowsAsJSON(artworksDirectory, limit)
@@ -53,12 +52,12 @@ export function getArtistById(id: number): Artist {
   return artist
 }
 
-export function getArtistWithArtworksById(id: string) {
+export async function getArtistWithArtworksById(id: string) {
   const idNumber = parseInt(id)
   const artist = getArtistById(idNumber)
-  // const artworks = getArtworksByArtistId(idNumber)
+  const artworks = await getArtworksByArtistId(idNumber)
   return {
     artist,
-    artworks: [],
+    artworks,
   }
 }
