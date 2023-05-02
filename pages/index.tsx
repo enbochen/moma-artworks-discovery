@@ -13,17 +13,15 @@ type Props = {
 
 export default function Index({ randomArtworks }: Props) {
   return (
-    <>
-      <Layout>
-        <Head>
-          <title>{WEBSITE_NAME}</title>
-        </Head>
-        <Container>
-          <Intro />
-          <ArtworkTwins artworks={randomArtworks} />
-        </Container>
-      </Layout>
-    </>
+    <Layout>
+      <Head>
+        <title>{WEBSITE_NAME}</title>
+      </Head>
+      <Container>
+        <Intro />
+        <ArtworkTwins artworks={randomArtworks} />
+      </Container>
+    </Layout>
   )
 }
 
