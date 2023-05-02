@@ -35,10 +35,13 @@ export function getAllArtistsId() {
 }
 
 export async function getArtworksByArtistId(id: number): Promise<Artwork[]> {
-  const artworkByArtist = await getRowsBySearch(artworksDirectory, (row) =>
+  const artworkByArtist = (await getRowsBySearch(artworksDirectory, (row) =>
     row.ConstituentID.includes(id)
+  )) as Artwork[]
+  const artworksWithImage = artworkByArtist.filter(
+    (artwork) => artwork.ThumbnailURL !== ''
   )
-  return artworkByArtist as Artwork[]
+  return artworksWithImage
 }
 
 export async function getDailyRandomArtworks(limit = 2): Promise<Artwork[]> {
