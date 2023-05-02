@@ -49,7 +49,6 @@ export default function Index({ randomArtworks }: Props) {
                   >
                     <ImageItem
                       src={artwork.ThumbnailURL}
-                      alt={artwork.Title}
                       width="400"
                       height="300"
                     />
