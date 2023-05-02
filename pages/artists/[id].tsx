@@ -25,15 +25,15 @@ export default function Artist({ artist, artworks }: Props) {
   )
 }
 
-export function getStaticPaths() {
-  const paths = getAllArtistsId()
-  return {
-    paths,
-    fallback: false,
-  }
-}
+// export function getStaticPaths() {
+//   const paths = getAllArtistsId()
+//   return {
+//     paths,
+//     fallback: false,
+//   }
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const { artist, artworks } = await getArtistWithArtworksById(params.id)
   return {
     props: {
