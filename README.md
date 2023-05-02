@@ -1,8 +1,12 @@
-# A fun art website using Next.js and TypeScript with MoMA collection data
+# Nice to Meet You
+
+A fun art discovery website using Next.js and TypeScript with MoMA collection data
+
+![preview](preview.png)
 
 ## Demo
 
-[]()
+[Hosted on Vercel](https://moma-artworks-discovery-i24f89z19-enbochen.vercel.app)
 
 ## How to use
 
