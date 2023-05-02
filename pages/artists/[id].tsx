@@ -1,18 +1,22 @@
 import Layout from '../../components/layout'
 import Artist from '../../interfaces/artist'
 import Artwork from '../../interfaces/artwork'
-import { getAllArtistsId, getArtistWithArtworksById } from '../../lib/api'
+import {
+  getAllArtistsId,
+  getArtistById,
+  getArtistWithArtworksById,
+} from '../../lib/api'
 
 interface Props {
   artist: Artist
-  artworks: Artwork[]
+  // artworks: Artwork[]
 }
-export default function Artist({ artist, artworks }: Props) {
+export default function Artist({ artist }: Props) {
   return (
     <Layout>
       <div>
         <div>{artist.DisplayName}</div>
-        <div>{JSON.stringify(artworks)}</div>
+        {/* <div>{JSON.stringify(artworks)}</div> */}
       </div>
     </Layout>
   )
@@ -31,7 +35,7 @@ export function getStaticProps({ params }) {
   return {
     props: {
       artist,
-      artworks,
+      // artworks,
     },
   }
 }

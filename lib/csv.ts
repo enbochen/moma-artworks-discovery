@@ -42,7 +42,6 @@ export async function getRandomRowsAsJSON(
 
     // wait for the stream to end before returning the result
     stream.on('end', () => {
-      console.log(rows.map((row) => row.ObjectID))
       resolve(rows)
     })
 
