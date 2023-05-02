@@ -5,7 +5,7 @@ import ArtsitInfo from '../../components/artist-info'
 import ArtsitArtworks from '../../components/artist-artworks'
 import Artist from '../../interfaces/artist'
 import Artwork from '../../interfaces/artwork'
-import { getAllArtistsId, getArtistWithArtworksById } from '../../lib/api'
+import { getArtistWithArtworksById } from '../../lib/api'
 
 interface Props {
   artist: Artist
@@ -24,14 +24,6 @@ export default function Artist({ artist, artworks }: Props) {
     </Layout>
   )
 }
-
-// export function getStaticPaths() {
-//   const paths = getAllArtistsId()
-//   return {
-//     paths,
-//     fallback: false,
-//   }
-// }
 
 export async function getServerSideProps({ params }) {
   const { artist, artworks } = await getArtistWithArtworksById(params.id)

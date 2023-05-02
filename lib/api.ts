@@ -23,17 +23,6 @@ export function getAllArtists() {
   return getArtists()
 }
 
-export function getAllArtistsId() {
-  const artists = getAllArtists()
-  return artists.map((artist) => {
-    return {
-      params: {
-        id: artist.ConstituentID.toString(),
-      },
-    }
-  })
-}
-
 export async function getArtworksByArtistId(id: number): Promise<Artwork[]> {
   const artworkByArtist = (await getRowsBySearch(artworksDirectory, (row) =>
     row.ConstituentID.includes(id)
