@@ -6,20 +6,21 @@ import Artwork from '../interfaces/artwork'
  * Function to get filtered rows from a large CSV file if the validate function passes.
  *
  * @param {string} filePath - The path to the CSV file.
- * @param {function} validate - A validate function to return true or false for each row
- * @returns {Promise<Artwork[]>} - A promise that resolves to an array of Artwork objects.
+ * @param {function} validateFn - A validate function to return true or false for each row
+ * @returns {Promise<any[]>} - A promise that resolves to all the rows obey the validation.
  */
 export async function getRowsBySearch(
   filePath: string,
-  validate: (row: any) => boolean
+  validateFn: (row: any) => boolean
 ) {
   const validatedRows: any[] = []
+
   return new Promise((resolve, reject) => {
     return fs
       .createReadStream(filePath)
       .pipe(csv())
       .on('data', (row) => {
-        if (validate(row)) {
+        if (validateFn(row)) {
           validatedRows.push(row)
         }
       })
@@ -37,12 +38,13 @@ export async function getRowsBySearch(
  *
  * @param {string} filePath - The path to the CSV file.
  * @param {number} n - The number of rows to return.
+ * @param {function} validateFn - A validate function to filter the rows
  * @returns {Promise<Artwork[]>} - A promise that resolves to an array of Artwork objects.
  */
 export async function getRandomRowsAsJSON(
   filePath: string,
   n: number,
-  validate?: (row: any) => boolean
+  validateFn?: (row: any) => boolean
 ): Promise<Artwork[]> {
   const rows: Artwork[] = []
   let currentLine = 0
@@ -55,7 +57,7 @@ export async function getRandomRowsAsJSON(
       .on('data', (row: Artwork) => {
         currentLine++
 
-        if (!!validate && !validate(row)) {
+        if (!!validateFn && !validateFn(row)) {
           return
         }
 
