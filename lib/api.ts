@@ -24,7 +24,11 @@ export async function getArtworksByArtistId(id: number): Promise<Artwork[]> {
 }
 
 export async function getDailyRandomArtworks(limit = 2): Promise<Artwork[]> {
-  const randomArtworks = await getRandomRowsAsJSON(artworksDirectory, limit)
+  const randomArtworks = await getRandomRowsAsJSON(
+    artworksDirectory,
+    limit,
+    (row) => !!row.ThumbnailURL
+  )
   return randomArtworks
 }
 
